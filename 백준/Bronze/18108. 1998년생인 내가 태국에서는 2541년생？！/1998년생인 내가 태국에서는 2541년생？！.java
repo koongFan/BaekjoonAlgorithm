@@ -1,17 +1,20 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Main
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
             // 백준 18108 번
-            Scanner scanner = new Scanner(System.in);
+           BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-            System.out.println(scanner.nextInt() - 543);
+           
+           System.out.println(Integer.parseInt(br.readLine()) - 543);
 
-            scanner.close();
+           br.close();
     }
 
 }
