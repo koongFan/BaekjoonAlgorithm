@@ -18,22 +18,16 @@ public class Main {
 
             int hour = Integer.parseInt(st.nextToken());
             int minute = Integer.parseInt(st.nextToken());
+            int ovenTimer = Integer.parseInt(br.readLine());
+            
+            hour = hour + (minute+ovenTimer)/60;
+            minute = (minute+ovenTimer)%60;
 
-            int needMinute = Integer.parseInt(br.readLine());
-
-            if(minute + needMinute >= 60){   
-
-                int plusHour = (minute + needMinute)/60;
-                int remainMinuite = (minute + needMinute)%60;
-
-                hour = hour + plusHour;
-                minute = remainMinuite;
-
-                bw.write(String.valueOf(hour>=24 ? hour-24 : hour) + " " + String.valueOf(minute==60 ? 0:minute));
+            if(hour >= 24){
+                hour = hour - 24;
             }
-            else{
-                bw.write(String.valueOf(hour) + " " + String.valueOf(minute + needMinute == 60 ? 0 : minute + needMinute));
-            }
+
+            bw.write(String.valueOf(hour) + " " + String.valueOf(minute));
 
             br.close();
             bw.flush();
